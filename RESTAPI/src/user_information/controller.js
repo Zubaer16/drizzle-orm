@@ -10,6 +10,8 @@ export const addUserInfo = async (req, res) => {
     const id = req.body.id
     const name = req.body.name
     const address = req.body.address
+    const department = req.body.department
+    const cgpa = req.body.cgpa
 
     // const checkDuplicate = await db
     //   .select()
@@ -20,9 +22,13 @@ export const addUserInfo = async (req, res) => {
     //   res.json('Only one user information can be added')
     // }
 
-    await db
-      .insert(user_information)
-      .values({ id: id, name: name, address: address })
+    await db.insert(user_information).values({
+      id: id,
+      name: name,
+      address: address,
+      department: department,
+      cgpa: cgpa,
+    })
     res.json('User added successfully')
   } catch (error) {
     console.log(error)
@@ -61,6 +67,9 @@ export const putUserbyId = async (req, res) => {
   try {
     const userId = parseInt(req.params.id)
     const userAddress = req.body.address
+    const name = req.body.name
+    const department = req.body.department
+    const cgpa = req.body.cgpa
     const getUser = await db
       .select()
       .from(user_information)
@@ -72,7 +81,12 @@ export const putUserbyId = async (req, res) => {
 
     await db
       .update(user_information)
-      .set({ address: userAddress })
+      .set({
+        name: name,
+        address: userAddress,
+        department: department,
+        cgpa: cgpa,
+      })
       .where(eq(user_information.id, userId))
 
     res.json('User updated successfully')
