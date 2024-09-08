@@ -1,18 +1,19 @@
-const express = require('express')
-const studentRoutes = require('./src/student/studentRoutes')
-const userRoutes = require('./src/student/userRoutes')
-
+import express from 'express'
+import router from './src/user_information/routes.js'
+import db from './db/db_connection.js'
+import { user_information } from './db/schema.js'
 const app = express()
+
 const port = 4000
 
 app.use(express.json())
-// app.use(express.urlencoded({ extended: true }))
 
 app.get('/', (req, res) => {
   res.send('Assalamu Alaikum!')
 })
 
-app.use('/api/v1/students', studentRoutes)
-app.use('/api/v1/users', userRoutes)
+app.listen(port, () => {
+  console.log(`App is listening on port ${port}`)
+})
 
-app.listen(port, () => console.log(`app listening on  port ${port}`))
+app.use('/api/v1/user_information', router)
