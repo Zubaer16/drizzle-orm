@@ -99,7 +99,6 @@ export const getSinglePermission = async (req, res, next) => {
 export const getToken = async (req, res) => {
   const { refreshToken } = req.body
 
-  //   res.json(refreshToken)
   if (!refreshToken) {
     return res.status(400).json({ message: 'Refresh token is required.' })
   }
