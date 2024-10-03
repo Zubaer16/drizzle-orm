@@ -1,5 +1,5 @@
 {
-  "id": "704e7e87-a70d-4718-83f2-e157479f8e0e",
+  "id": "daeaec21-a8ce-4d0b-ba86-f2d467bd5e55",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -23,6 +23,18 @@
         "address": {
           "name": "address",
           "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "department": {
+          "name": "department",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cgpa": {
+          "name": "cgpa",
+          "type": "numeric(3, 2)",
           "primaryKey": false,
           "notNull": false
         }
