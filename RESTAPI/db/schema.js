@@ -7,7 +7,6 @@ import {
   varchar,
   decimal,
 } from 'drizzle-orm/pg-core'
-import { numeric } from 'drizzle-orm/sqlite-core'
 
 export const users = pgTable('users', {
   id: serial('id').primaryKey(),
